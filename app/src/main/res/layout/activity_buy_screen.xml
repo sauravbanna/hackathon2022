@@ -4,61 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.OwnerLogin"
-    android:background="#e3dac9"
-    >
-
-
-    <EditText
-        android:id="@+id/usernameInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/username"
-        android:textSize="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.252" />
+    android:background="#e6e3cf"
+    tools:context=".ui.BuyScreen">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/owner_login"
-        android:textSize="65dp"
+        android:text="TextView"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintVertical_bias="0.137" />
 
-    <EditText
-        android:id="@+id/passwordInput"
+    <TextView
+        android:id="@+id/productTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:textSize="45dp"
+        android:text="TextView"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.415" />
+        app:layout_constraintVertical_bias="0.375" />
+
+    <TextView
+        android:id="@+id/aisle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.631" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/continueShopping"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:textSize="45dp"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:backgroundTint="#F5C52C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.793"
-        app:layout_constraintStart_toEndOf="@+id/usernameInput"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.253" />
+        app:layout_constraintVertical_bias="0.84" />
 </androidx.constraintlayout.widget.ConstraintLayout>

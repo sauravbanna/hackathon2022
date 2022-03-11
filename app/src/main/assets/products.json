@@ -1,0 +1,133 @@
+{
+  "products": [
+    {
+        "id": 1,
+        "aisle": 6,
+        "name": "Qualcomm Laptop i8",
+        "description": "The next generation of Laptop.",
+        "price": 2,
+        "battery": 5,
+        "processing power": 10,
+        "resolution": 8,
+        "gpu": 4,
+        "ram": 2,
+        "hard drive": 1
+    },
+    {
+      "id": 2,
+      "aisle": 13,
+      "name": "ASUS Gaming Laptop e7",
+      "description": "Perfect for Gamers.",
+      "price": 4,
+      "battery": 8,
+      "processing power": 3,
+      "resolution": 6,
+      "gpu": 7,
+      "ram": 2,
+      "hard drive": 4
+    },
+    {
+      "id": 3,
+      "aisle": 3,
+      "name": "Acer Lightweight Notebook",
+      "description": "For work or school.",
+      "price": 2,
+      "battery": 1,
+      "processing power": 1,
+      "resolution": 9,
+      "gpu": 10,
+      "ram": 9,
+      "hard drive": 10
+    },
+    {
+      "id": 4,
+      "aisle": 20,
+      "name": "Dell Laptop",
+      "description": "Good for office use.",
+      "price": 3,
+      "battery": 10,
+      "processing power": 7,
+      "resolution": 1,
+      "gpu": 2,
+      "ram": 3,
+      "hard drive": 4
+    },
+    {
+      "id": 5,
+      "aisle": 17,
+      "name": "Acer 2x Giga Gaming Laptop",
+      "description": "For high-end gaming",
+      "price": 3,
+      "battery": 2,
+      "processing power": 6,
+      "resolution": 8,
+      "gpu": 5,
+      "ram": 7,
+      "hard drive": 3
+    },
+    {
+      "id": 6,
+      "aisle": 6,
+      "name": "Qualcomm Laptop i9",
+      "description": "The newest edition in the Qualcomm series.",
+      "price": 6,
+      "battery": 7,
+      "processing power": 1,
+      "resolution": 8,
+      "gpu": 3,
+      "ram": 9,
+      "hard drive": 3
+    },
+    {
+      "id": 7,
+      "aisle": 14,
+      "name": "Lenovo ThinkPad",
+      "description": "The classic laptop.",
+      "price": 6,
+      "battery": 8,
+      "processing power": 2,
+      "resolution": 9,
+      "gpu": 4,
+      "ram": 3,
+      "hard drive": 8
+    },
+    {
+      "id": 8,
+      "aisle": 3,
+      "name": "Chromebook v8",
+      "description": "Lightweight and easy to use.",
+      "price": 8,
+      "battery": 2,
+      "processing power": 3,
+      "resolution": 9,
+      "gpu": 2,
+      "ram": 7,
+      "hard drive": 8
+    },{
+      "id": 9,
+      "aisle": 8,
+      "name": "BenQ Office Laptop",
+      "description": "Great for offices and work from home.",
+      "price": 9,
+      "battery": 7,
+      "processing power": 4,
+      "resolution": 4,
+      "gpu": 6,
+      "ram": 8,
+      "hard drive": 2
+    },
+    {
+      "id": 10,
+      "aisle": 4,
+      "name": "Alienware Gaming Laptop",
+      "description": "For Extreme Gaming.",
+      "price": 5,
+      "battery": 7,
+      "processing power": 8,
+      "resolution": 3,
+      "gpu": 6,
+      "ram": 8,
+      "hard drive": 3
+    }
+  ]
+}

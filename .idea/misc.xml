@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/admin/AndroidStudioProjects/hackathonProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.123828125" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/hackathonProject/app/src/main/res/layout/activity_best_products.xml" value="0.22" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/hackathonProject/app/src/main/res/layout/activity_buy_screen.xml" value="0.1" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/hackathonProject/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/hackathonProject/app/src/main/res/layout/activity_owner_login.xml" value="0.13333333333333333" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/hackathonProject/app/src/main/res/layout/activity_recommend_product.xml" value="0.23136246786632392" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/hackathonProject/app/src/main/res/layout/activity_recommend_product.xml" value="0.1" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/hackathonProject/app/src/main/res/layout/activity_store_manage_page.xml" value="0.1" />
       </map>
     </option>

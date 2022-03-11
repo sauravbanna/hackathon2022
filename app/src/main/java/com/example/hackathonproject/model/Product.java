@@ -1,7 +1,5 @@
 package com.example.hackathonproject.model;
 
-import com.example.hackathonproject.model.scores.Score;
-
 import java.util.HashMap;
 
 public class Product {
@@ -10,23 +8,25 @@ public class Product {
 
     // FIELDS
     private int id;
-    private HashMap<String, Score> scores;
+    private HashMap<String, Integer> scores;
     private String name;
     private String description;
-
+    private int aisle;
 
     // METHODS
-    public Product(String name, String description) {
+    public Product(int id, String name, String description, int aisle) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.scores = new HashMap<>();
+        this.aisle = aisle;
     }
 
-    public Score getScore(String attribute) {
+    public Integer getScore(String attribute) {
         return this.scores.get(attribute);
     }
 
-    public void addAttribute(String attribute, Score score) {
+    public void addAttribute(String attribute, int score) {
         this.scores.put(attribute, score);
     }
 
@@ -36,6 +36,10 @@ public class Product {
 
     public String getDescription() {
         return description;
+    }
+
+    public int getAisle() {
+        return aisle;
     }
 
 }

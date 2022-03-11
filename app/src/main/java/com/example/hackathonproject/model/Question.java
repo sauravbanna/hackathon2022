@@ -10,7 +10,6 @@ public class Question {
     // 0 is Rating Slider Question from 1-10
     // 1 is Yes / No / Doesn't Matter Question
     // 2 is Price Slider Question
-    // 3 is Colour question
     private int type;
 
     // METHODS

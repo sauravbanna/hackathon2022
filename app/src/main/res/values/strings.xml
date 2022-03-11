@@ -11,4 +11,5 @@
     <string name="red">Red</string>
     <string name="blue">Blue</string>
     <string name="no_preference">No Preference</string>
+    <string name="info">Info</string>
 </resources>

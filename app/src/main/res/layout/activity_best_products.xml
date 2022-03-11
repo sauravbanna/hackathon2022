@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e6e3cf"
+    tools:context=".ui.BestProducts">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/productInfo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.7">
+
+        <ImageView
+            android:id="@+id/productInfoBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/productImage"
+            app:layout_constraintEnd_toStartOf="@+id/descriptionHeading"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9" />
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="227dp"
+            android:layout_height="215dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/productInfoBackground"
+            app:layout_constraintHorizontal_bias="0.041"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.378"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/descriptionHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toEndOf="@+id/productImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toEndOf="@+id/productImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.256" />
+
+        <Button
+            android:id="@+id/buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buy"
+            android:backgroundTint="#F5C52C"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/productInfoBackground"
+            app:layout_constraintHorizontal_bias="0.84"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.556" />
+
+        <TextView
+            android:id="@+id/priceLabel"
+            android:layout_width="33dp"
+            android:layout_height="15dp"
+            android:text="Price"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/batteryLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9" />
+
+        <TextView
+            android:id="@+id/resolutionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resolution"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/gpuLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9" />
+
+        <TextView
+            android:id="@+id/gpuLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GPU"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/ramLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9" />
+
+        <TextView
+            android:id="@+id/ramLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RAM"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.875" />
+
+        <TextView
+            android:id="@+id/hardDriveLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hard Drive"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/gpuLabel"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.763" />
+
+        <TextView
+            android:id="@+id/batteryLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Battery"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/processingLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9" />
+
+        <TextView
+            android:id="@+id/processingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Processing Power"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.875" />
+
+        <Button
+            android:id="@+id/exitButton"
+            android:layout_width="45dp"
+            android:layout_height="47dp"
+            android:text="X"
+            android:backgroundTint="#F5C52C"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.98"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.027" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/chosenProduct1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/chosenMoreInfo1"
+        app:layout_constraintHorizontal_bias="0.302"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+        android:id="@+id/chosenProduct2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="592dp"
+        android:text="2"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/chosenMoreInfo2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"></TextView>
+
+    <TextView
+        android:id="@+id/chosenProduct3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="592dp"
+        android:text="3"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/chosenMoreInfo3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.80" />
+
+    <TextView
+        android:id="@+id/chosenProductHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your top 3 products are:"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.124" />
+
+    <Button
+        android:id="@+id/chosenMoreInfo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/info"
+        android:textAllCaps="false"
+        android:backgroundTint="#F5C52C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.729"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <Button
+        android:id="@+id/chosenMoreInfo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/info"
+        android:textAllCaps="false"
+        android:backgroundTint="#F5C52C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.73"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <Button
+        android:id="@+id/chosenMoreInfo3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/info"
+        android:textAllCaps="false"
+        android:backgroundTint="#F5C52C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.729"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.80" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

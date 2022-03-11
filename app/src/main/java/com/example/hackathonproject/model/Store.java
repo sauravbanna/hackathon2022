@@ -1,7 +1,6 @@
 package com.example.hackathonproject.model;
 
 import com.example.hackathonproject.model.comparators.CurrentScoreComparator;
-import com.example.hackathonproject.model.scores.Score;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,30 +16,23 @@ public class Store {
     public static HashMap<Integer, Product> PRODUCTS;
 
     public static final List<Question> QUESTIONS = Arrays.asList(new Question[]
-            {new Question("What is your maximum budget?", 2, "price"),
+            {new Question("What is your ideal budget?", 2, "price"),
                     new Question("How important is battery life to you?", 0, "battery"),
-                    new Question("How important is processing power to you?", 0, "battery"),
-                    new Question("How important is screen resolution to you?", 0, "battery"),
-                    new Question("Would you like a dedicated GPU in your machine?", 1, "battery"),
-                    new Question("How important is RAM amount for you?", 0, "battery"),
-                    new Question("How important is Hard Drive capacity for you?", 0, "battery"),
-                    new Question("What colour would you like your laptop?", 3, "battery")
+                    new Question("How important is processing power to you?", 0, "processing power"),
+                    new Question("How important is screen resolution to you?", 0, "resolution"),
+                    new Question("Would you like a dedicated GPU?", 1, "gpu"),
+                    new Question("How important is RAM amount for you?", 0, "ram"),
+                    new Question("How important is Hard Drive capacity for you?", 0, "hard drive"),
             });
     public static List<String> ATTRIBUTES = Arrays.asList(new String[]
-            {"price", "battery", "processing power", "resolution", "gpu", "ram", "hard drive", "color"});
+            {"price", "battery", "processing power", "resolution", "gpu", "ram", "hard drive"});
 
-    public static final int MAX_PRICE = 4000;
-    public static final int MAX_BATTERY = 24;
-    public static final double MAX_PROCESSING_POWER = 5.0;
-    public static final int MAX_RESOLUTION = 7680 * 4320;
-    public static final int MAX_GPU = 3000;
-    public static final int MAX_RAM = 32;
-    public static final int MAX_HARD_DRIVE = 2;
+    public static final int MAX_PRICE = 5000;
 
     // FIELDS
     private List<ProductScore> productScores;
     private int currentScorePosition;
-    public static HashMap<String, Score> currentAttributes;
+    public static HashMap<String, Integer> currentAttributes;
     private int maxPrice;
 
     // METHODS
@@ -53,30 +45,46 @@ public class Store {
         this.maxPrice = 0;
     }
 
+    public void initProductScores() {
+        for (Product p : PRODUCTS.values()) {
+            productScores.add(new ProductScore(p, 0));
+        }
+    }
+
     public void setProducts(HashMap<Integer, Product> products) {
         this.PRODUCTS = products;
         for (Product p : this.PRODUCTS.values()) {
-            this.productScores.add(new ProductScore(p, new ArrayList<>()));
+            this.productScores.add(new ProductScore(p, 0));
         }
     }
 
-    public void sort(String attribute) {
-        updateProductScores(attribute);
+    public void sort() {
+        updateProductScores();
 
-        Collections.sort(productScores, new CurrentScoreComparator(currentScorePosition));
+
+        Collections.sort(productScores, new CurrentScoreComparator());
+        Collections.reverse(productScores);
     }
 
-    private void updateProductScores(String attribute) {
+    private void updateProductScores() {
         for (ProductScore ps : productScores) {
-            ps.updateProductScore(currentAttributes.get(attribute), currentScorePosition, attribute);
+
+            ps.updateProductScore();
         }
     }
 
 
-    public void addAttribute(String attribute, Score score) {
+    public void addAttribute(String attribute, Integer score) {
         currentAttributes.put(attribute, score);
-        sort(attribute);
+        sort();
 
+    }
+
+    public void removeAttribute(String attribute) {
+        if (currentAttributes.containsKey(attribute)) {
+            currentAttributes.remove(attribute);
+            sort();
+        }
     }
 
     public void addProduct(Product product) {
@@ -95,6 +103,10 @@ public class Store {
 
     public void addCurrentScorePosition() {
         currentScorePosition++;
+    }
+
+    public void reduceCurrectScorePosition() {
+        currentScorePosition--;
     }
 
     public boolean scorePositionCheck() {

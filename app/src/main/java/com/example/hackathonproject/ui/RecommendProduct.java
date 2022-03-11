@@ -1,10 +1,13 @@
 package com.example.hackathonproject.ui;
 
+import static com.example.hackathonproject.ui.HomePage.store;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
@@ -13,29 +16,32 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hackathonproject.R;
 import com.example.hackathonproject.model.Question;
 import com.example.hackathonproject.model.Store;
-import com.example.hackathonproject.model.scores.ColourScore;
-import com.example.hackathonproject.model.scores.PriceScore;
-import com.example.hackathonproject.model.scores.RatingScore;
-import com.example.hackathonproject.model.scores.Score;
 
-public class RecommendProduct extends AppCompatActivity {
+public class RecommendProduct extends ProductInfoDisplay {
 
     // CONSTANTS
     public static final int FADE_LENGTH = 400;
-    public static final Score DEFAULT_INPUT = new RatingScore(5);
-    public static final double SURVEY_WELCOME_SCALE = 0.07;
+    public static final double SURVEY_WELCOME_SCALE = 0.06;
+    public static final double BEST_PRODUCT_SCALE = 0.05;
     public static final double SLIDER_COUNT_SCALE = 0.04;
+    public static final double QUESTION_SCALE = 0.05;
 
     // FIELDS
     private ConstraintLayout surveyQuestion;
     private ConstraintLayout surveyStart;
     private TextView question;
     private TextView sliderCount;
+    private TextView bestProductHeading;
+    private TextView bestProduct1;
+    private TextView bestProduct2;
+    private TextView bestProduct3;
+    private Button moreInfo1;
+    private Button moreInfo2;
+    private Button moreInfo3;
     private TextView surveyWelcomeText;
     private RadioButton yesButton;
     private RadioButton noButton;
@@ -46,20 +52,68 @@ public class RecommendProduct extends AppCompatActivity {
     private SeekBar priceSlider;
     private Button startButton;
     private Button nextButton;
-    private Store store;
+    private Button backButton;
     public static int surveyHeadingSize;
     public static int sliderCountSize;
+    public static int bestProductHeadingSize;
+    public static int bestProductSize;
 
     // METHODS
 
     public void init() {
-        store = new Store();
         initLayoutObjects();
+        initImageViews();
     }
 
     public void initLayoutObjects() {
         surveyHeadingSize = (int)(HomePage.height * SURVEY_WELCOME_SCALE);
         sliderCountSize = (int)(HomePage.height * SLIDER_COUNT_SCALE);
+        bestProductHeadingSize = (int)(HomePage.height * SURVEY_WELCOME_SCALE);
+        bestProductSize = (int)(HomePage.height * BEST_PRODUCT_SCALE);
+
+        bestProduct1 = findViewById(R.id.bestProduct1);
+        bestProduct2 = findViewById(R.id.bestProduct2);
+        bestProduct3 = findViewById(R.id.bestProduct3);
+        bestProduct1.setTextSize(TypedValue.COMPLEX_UNIT_DIP, bestProductSize);
+        bestProduct2.setTextSize(TypedValue.COMPLEX_UNIT_DIP, bestProductSize);
+        bestProduct3.setTextSize(TypedValue.COMPLEX_UNIT_DIP, bestProductSize);
+        moreInfo1 = findViewById(R.id.moreInfo1);
+        moreInfo2 = findViewById(R.id.moreInfo2);
+        moreInfo3 = findViewById(R.id.moreInfo3);
+        moreInfo1.setTextSize(HomePage.buttonTextSize);
+        moreInfo2.setTextSize(HomePage.buttonTextSize);
+        moreInfo3.setTextSize(HomePage.buttonTextSize);
+
+        moreInfo1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setRatings(store.getProductScores().get(0).getProduct());
+
+
+            }
+        });
+
+        moreInfo2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setRatings(store.getProductScores().get(1).getProduct());
+            }
+        });
+
+        moreInfo3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setRatings(store.getProductScores().get(2).getProduct());
+            }
+        });
+
+        refreshBestProducts();
+
+        bestProductHeading = findViewById(R.id.bestProductHeading);
+        bestProductHeading.setTextSize(TypedValue.COMPLEX_UNIT_DIP, bestProductHeadingSize);
+
+        question = findViewById(R.id.questionSlider);
+        question.setTextSize(TypedValue.COMPLEX_UNIT_DIP ,(int)(HomePage.height * QUESTION_SCALE));
 
         yesButton = findViewById(R.id.yes);
         yesButton.setTextSize(TypedValue.COMPLEX_UNIT_DIP, sliderCountSize);
@@ -84,6 +138,8 @@ public class RecommendProduct extends AppCompatActivity {
         startButton.setTextSize(TypedValue.COMPLEX_UNIT_DIP, HomePage.buttonTextSize);
         nextButton = findViewById(R.id.nextQuestion);
         nextButton.setTextSize(TypedValue.COMPLEX_UNIT_DIP, HomePage.buttonTextSize);
+        backButton = findViewById(R.id.previousQuestion);
+        backButton.setTextSize(TypedValue.COMPLEX_UNIT_DIP, HomePage.buttonTextSize);
 
         slider = findViewById(R.id.ratingSlider);
         priceSlider = findViewById(R.id.priceSlider);
@@ -108,7 +164,7 @@ public class RecommendProduct extends AppCompatActivity {
         priceSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                sliderCount.setText(String.valueOf(1000 * priceSlider.getProgress()));
+                sliderCount.setText(String.valueOf(100 * priceSlider.getProgress()));
             }
 
             @Override
@@ -122,6 +178,12 @@ public class RecommendProduct extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void refreshBestProducts() {
+        bestProduct1.setText(store.getProductScores().get(0).toString());
+        bestProduct2.setText(store.getProductScores().get(1).toString());
+        bestProduct3.setText(store.getProductScores().get(2).toString());
     }
 
     @Override
@@ -193,7 +255,9 @@ public class RecommendProduct extends AppCompatActivity {
                         }
                     });
         } else {
-
+            Intent intent = new Intent(this, BestProducts.class);
+            startActivity(intent);
+            finish();
         }
     }
 
@@ -206,25 +270,34 @@ public class RecommendProduct extends AppCompatActivity {
     }
 
     public void displayQuestion() {
-
+        backButton.setOnClickListener(null);
         nextButton.setOnClickListener(null);
-        Question question = store.getQuestions().get(store.getCurrentScorePosition());
-        TextView questionText = findViewById(R.id.questionSlider);
-        questionText.setText(question.getQuestion());
+        Question answeredQuestion = store.getQuestions().get(store.getCurrentScorePosition());
+        question.setText(answeredQuestion.getQuestion());
 
-        displayInput(question.getType());
+        displayInput(answeredQuestion.getType());
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Score userScore = inputSelect(question.getType());
-                store.addAttribute(question.getAttribute(), userScore);
+                Integer userScore = inputSelect(answeredQuestion.getType());
+                store.addAttribute(answeredQuestion.getAttribute(), userScore);
+                refreshBestProducts();
                 store.addCurrentScorePosition();
-                Toast toast = Toast.makeText(getApplicationContext(), store.getProductScores().get(0).toString(), Toast.LENGTH_LONG);
-                toast.show();
                 fadeOutQuestion();
             }
         });
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                store.removeAttribute(answeredQuestion.getAttribute());
+                refreshBestProducts();
+                store.reduceCurrectScorePosition();
+                fadeOutQuestion();
+            }
+        });
+
+
 
     }
 
@@ -252,18 +325,16 @@ public class RecommendProduct extends AppCompatActivity {
         }
     }
 
-    public Score inputSelect(int type) {
+    public int inputSelect(int type) {
         switch (type) {
             case 0:
-                return new RatingScore(slider.getProgress());
+                return slider.getProgress();
             case 1:
-                return new RatingScore(buttonIdToInt(choiceGroup.getCheckedRadioButtonId()));
+                return buttonIdToInt(choiceGroup.getCheckedRadioButtonId());
             case 2:
-                return new PriceScore(1000 * priceSlider.getProgress());
-            case 3:
-                return new ColourScore(colourIdToHex(colourGroup.getCheckedRadioButtonId()));
+                return (int)(10*(Math.abs(100 * priceSlider.getProgress() - Store.MAX_PRICE) / (double)Store.MAX_PRICE));
             default:
-                return DEFAULT_INPUT;
+                return 5;
         }
     }
 
@@ -279,19 +350,6 @@ public class RecommendProduct extends AppCompatActivity {
         }
     }
 
-    private String colourIdToHex(int id) {
-        String buttonName = colourGroup.getResources().getResourceEntryName(id);
-        switch (buttonName) {
-            case "black" :
-                return "000000";
-            case "red" :
-                return "FF0000";
-            case "blue" :
-                return "0000FF";
-            default :
-                return "FFFFFF";
-        }
-    }
 
 
 
