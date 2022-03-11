@@ -195,6 +195,8 @@ public class RecommendProduct extends AppCompatActivity {
                 });
     }
 
+    //
+
     public void hideUserInput() {
         slider.setVisibility(View.GONE);
         sliderCount.setVisibility(View.GONE);
