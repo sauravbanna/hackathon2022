@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
+    android:background="#e3dac9"
     tools:context=".ui.RecommendProduct">
 
 
@@ -27,13 +28,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:max="10"
-            android:min="0"
+            android:min="1"
 
             android:minWidth="10dp"
             android:progress="5"
             android:progressTint="#F5C52C"
             android:thumbTint="#F5C52C"
             android:tickMarkTint="#F5C52C"
+            android:backgroundTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,10 +47,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            android:textColor="@color/black"
             android:textSize="35dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.3"
+            app:layout_constraintVertical_bias="0.01"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,7 +64,7 @@
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.85"
+            app:layout_constraintVertical_bias="0.95"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,6 +75,7 @@
             android:layout_height="wrap_content"
             android:max="10"
             android:min="0"
+            android:backgroundTint="@color/black"
             android:minWidth="10dp"
             android:progress="5"
             android:progressTint="#F5C52C"
@@ -87,7 +91,8 @@
             android:id="@+id/sliderCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text=""
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -98,44 +103,115 @@
             android:id="@+id/choiceGroupLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/nextQuestion"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent=".30"
+            app:layout_constraintHeight_percent=".6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.630"
+            app:layout_constraintVertical_bias="0.89"
             app:layout_constraintWidth_default="percent"
             app:layout_constraintWidth_percent=".6">
 
             <RadioGroup
                 android:id="@+id/choiceGroup"
                 android:layout_width="match_parent"
-                android:checkedButton="@id/no_opinion"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                tools:layout_editor_absoluteX="0dp"
-
-                tools:layout_editor_absoluteY="40dp">
+                android:checkedButton="@id/no_opinion"
+                android:gravity="center">
 
                 <RadioButton
                     android:id="@+id/yes"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:textColor="@color/black"
+                    android:buttonTint="#F5C52C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/yes"
-                    />
+                    android:text="@string/yes" />
 
                 <RadioButton
                     android:id="@+id/no"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:textColor="@color/black"
+                    android:buttonTint="#F5C52C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/no" />
 
                 <RadioButton
                     android:id="@+id/no_opinion"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:textColor="@color/black"
+                    android:buttonTint="#F5C52C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/doesn_t_matter" />
+            </RadioGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/colourGroupLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/nextQuestion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent=".6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.89"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".6">
+
+            <RadioGroup
+                android:id="@+id/colourGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:checkedButton="@id/no_opinion"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/black"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:textColor="@color/black"
+                    android:buttonTint="#F5C52C"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/black" />
+
+                <RadioButton
+                    android:id="@+id/red"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:textColor="#FF0000"
+                    android:buttonTint="#FF0000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/red" />
+
+                <RadioButton
+                    android:id="@+id/blue"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:textColor="#0000FF"
+                    android:buttonTint="#0000FF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/blue" />
+                <RadioButton
+                    android:id="@+id/no_preference"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:textColor="@color/black"
+                    android:buttonTint="#F5C52C"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_preference" />
             </RadioGroup>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -174,6 +250,7 @@
             android:layout_height="wrap_content"
             android:text="Fill a short survey and get a recommended product!"
             android:textSize="45dp"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="0.3"
