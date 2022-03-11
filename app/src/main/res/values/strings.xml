@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">hackathonProject</string>
+    <string name="username">Username</string>
+    <string name="owner_login">Owner Login</string>
+    <string name="suggest_a_product">Suggest a Product</string>
+    <string name="login">Login</string>
+    <string name="doesn_t_matter">Doesn\'t Matter</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+</resources>
